@@ -1,16 +1,28 @@
 package com.samay.customviewdemo;
 
 import android.app.Activity;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
+
+import com.samay.customviewdemo.utils.Blur;
 
 public class MainActivity extends Activity {
+    private ImageView imageVew;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        imageVew= (ImageView) findViewById(R.id.image_view);
+        BitmapFactory.Options options=new BitmapFactory.Options();
+        options.inSampleSize=2;
+        Bitmap image=BitmapFactory.decodeResource(getResources(),R.drawable.picture,options);
+        Bitmap newImg= Blur.fastblur(getApplicationContext(),image,1);
+        imageVew.setImageBitmap(newImg);
     }
 
     @Override
