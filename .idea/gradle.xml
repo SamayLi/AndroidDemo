@@ -13,6 +13,7 @@
             <option value="$PROJECT_DIR$/customviewdemo" />
             <option value="$PROJECT_DIR$/retrofitdemo" />
             <option value="$PROJECT_DIR$/shortcutdemo" />
+            <option value="$PROJECT_DIR$/silentinstall" />
           </set>
         </option>
       </GradleProjectSettings>
