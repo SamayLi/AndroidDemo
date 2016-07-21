@@ -1,42 +1,40 @@
-package com.samay.silentinstall;
+package com.samay.activitydemo;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.net.ConnectivityManager;
-import android.net.wifi.WifiDevice;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
-import java.util.List;
+import com.samay.internet.httpURLConnection.HttpURlConnectionUtils;
 
 public class MainActivity extends Activity {
-    private Button mButton;
+
+    Button mButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mButton= (Button) findViewById(R.id.btn_test);
+        mButton= (Button) findViewById(R.id.clickBtn);
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("SHAOHUALI","CLICK ME");
-                Intent intent=new Intent(MainActivity.this,AppInstallService.class);
-                intent.setAction(AppInstallService.ACTION_INSTALL);
-                startService(intent);
+                Intent intent=new Intent();
+                intent.setAction("com.tct.diagnostic.INFORMEDCONSENT");
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_right_in,R.anim.slide_left_out);
             }
         });
-        ConnectivityManager connectivityManager=(ConnectivityManager)getBaseContext().getSystemService(Context.CONNECTIVITY_SERVICE);
-        List<WifiDevice> connectedDevice=connectivityManager.getTetherConnectedSta();
-        for(int i=0;i<connectedDevice.size();i++){
-            WifiDevice wifiDevice=connectedDevice.get(i);
-            Log.d("LSH","name is "+wifiDevice.deviceName);
-            Log.d("LSH","address is "+wifiDevice.deviceAddress);
-        }
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                HttpURlConnectionUtils utils=new HttpURlConnectionUtils();
+                utils.getContent("https://www.baidu.com/");
+            }
+        }).start();
+
     }
 
     @Override

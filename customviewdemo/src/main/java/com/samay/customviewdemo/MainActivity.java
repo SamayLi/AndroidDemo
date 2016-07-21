@@ -1,28 +1,62 @@
 package com.samay.customviewdemo;
 
 import android.app.Activity;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.samay.customviewdemo.utils.Blur;
+import com.samay.customviewdemo.utils.MyPageTransformer;
 
 public class MainActivity extends Activity {
-    private ImageView imageVew;
+//    private ImageView imageVew;
+
+    private ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        imageVew= (ImageView) findViewById(R.id.image_view);
-        BitmapFactory.Options options=new BitmapFactory.Options();
-        options.inSampleSize=2;
-        Bitmap image=BitmapFactory.decodeResource(getResources(),R.drawable.picture,options);
-        Bitmap newImg= Blur.fastblur(getApplicationContext(),image,1);
-        imageVew.setImageBitmap(newImg);
+        viewPager= (ViewPager) findViewById(R.id.view_pager);
+        viewPager.setAdapter(new PagerAdapter() {
+            @Override
+            public int getCount() {
+                return 20;
+            }
+
+            @Override
+            public boolean isViewFromObject(View view, Object object) {
+                return view == object;
+            }
+
+            @Override
+            public Object instantiateItem(ViewGroup container, int position) {
+                View view = LayoutInflater.from(getApplicationContext()).inflate(R.layout.item_viewpager, null);
+                ImageView imageView = (ImageView) view.findViewById(R.id.iv_movie);
+                imageView.setImageResource(R.mipmap.ic_loading);
+                container.addView(view);
+                return view;
+            }
+
+            @Override
+            public void destroyItem(ViewGroup container, int position, Object object) {
+                View view = (View) object;
+                container.removeView(view);
+            }
+        });
+        viewPager.setOffscreenPageLimit(5);
+        viewPager.setPageTransformer(true,new MyPageTransformer());
+//        imageVew= (ImageView) findViewById(R.id.image_view);
+//        BitmapFactory.Options options=new BitmapFactory.Options();
+//        options.inSampleSize=2;
+//        Bitmap image=BitmapFactory.decodeResource(getResources(),R.drawable.picture,options);
+//        Bitmap newImg= Blur.fastblur(getApplicationContext(),image,1);
+//        imageVew.setImageBitmap(newImg);
     }
 
     @Override

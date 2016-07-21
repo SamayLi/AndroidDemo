@@ -1,1 +1,1 @@
-include ':app', ':shortcutdemo', ':customviewdemo', ':retrofitdemo', ':silentinstall'
+include ':app', ':shortcutdemo', ':customviewdemo', ':retrofitdemo', ':silentinstall', ':activitydemo'
