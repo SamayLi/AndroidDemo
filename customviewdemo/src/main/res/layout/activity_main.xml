@@ -1,17 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.samay.customviewdemo.ui.UpMarqueeTextViewScroll xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#edebeb"
-    android:clipChildren="false"
-    android:gravity="center"
-    android:orientation="vertical">
+    android:layout_height="80dp">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/view_pager"
-        android:layout_width="250dp"
-        android:layout_height="match_parent"
-        android:background="#edebeb" />
-</LinearLayout>
+        <TextView
+            android:id="@+id/title_tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="6dp"
+            android:background="@drawable/textview_border"
+            android:padding="3dp"
+            android:text="热议"
+            android:textColor="@color/red"
+            android:textSize="9sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/title_tv1"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="家人给2岁孩子喝这个，孩子智力倒退10岁!!!"
+            android:textSize="14sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+
+        <TextView
+            android:id="@+id/title_tv2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="6dp"
+            android:background="@drawable/textview_border"
+            android:padding="3dp"
+            android:text="热议"
+            android:textColor="@color/red"
+            android:textSize="9sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/title_tv2"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="iPhone8最感人变化成真，必须买买买买!!!!"
+            android:textSize="14sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+
+        <TextView
+            android:id="@+id/title_tv3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="6dp"
+            android:background="@drawable/textview_border"
+            android:padding="3dp"
+            android:text="热议"
+            android:textColor="@color/red"
+            android:textSize="9sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/title_tv3"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="简直是白菜价！日本玩家33万甩卖15万张游戏王卡"
+            android:textSize="14sp" />
+    </RelativeLayout>
+</com.samay.customviewdemo.ui.UpMarqueeTextViewScroll>

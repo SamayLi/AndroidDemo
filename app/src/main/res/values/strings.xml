@@ -3,4 +3,9 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="gotoSettingTips">"To receive local weather data, grant Location and Phone access."</string>
+    <string name="settings">"Settings"</string>
+    <string name="permission_poster_title">"Grant access"</string>
+    <string name="location_permission_description">"Weather needs Location and Phone permission to provide local weather data. Grant Location and Phone access to use this feature."</string>
+    <string name="gotit">"Got it"</string>
 </resources>

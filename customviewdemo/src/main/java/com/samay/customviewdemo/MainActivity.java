@@ -22,35 +22,35 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        viewPager= (ViewPager) findViewById(R.id.view_pager);
-        viewPager.setAdapter(new PagerAdapter() {
-            @Override
-            public int getCount() {
-                return 20;
-            }
-
-            @Override
-            public boolean isViewFromObject(View view, Object object) {
-                return view == object;
-            }
-
-            @Override
-            public Object instantiateItem(ViewGroup container, int position) {
-                View view = LayoutInflater.from(getApplicationContext()).inflate(R.layout.item_viewpager, null);
-                ImageView imageView = (ImageView) view.findViewById(R.id.iv_movie);
-                imageView.setImageResource(R.mipmap.ic_loading);
-                container.addView(view);
-                return view;
-            }
-
-            @Override
-            public void destroyItem(ViewGroup container, int position, Object object) {
-                View view = (View) object;
-                container.removeView(view);
-            }
-        });
-        viewPager.setOffscreenPageLimit(5);
-        viewPager.setPageTransformer(true,new MyPageTransformer());
+//        viewPager= (ViewPager) findViewById(R.id.view_pager);
+//        viewPager.setAdapter(new PagerAdapter() {
+//            @Override
+//            public int getCount() {
+//                return 20;
+//            }
+//
+//            @Override
+//            public boolean isViewFromObject(View view, Object object) {
+//                return view == object;
+//            }
+//
+//            @Override
+//            public Object instantiateItem(ViewGroup container, int position) {
+//                View view = LayoutInflater.from(getApplicationContext()).inflate(R.layout.item_viewpager, null);
+//                ImageView imageView = (ImageView) view.findViewById(R.id.iv_movie);
+//                imageView.setImageResource(R.mipmap.ic_loading);
+//                container.addView(view);
+//                return view;
+//            }
+//
+//            @Override
+//            public void destroyItem(ViewGroup container, int position, Object object) {
+//                View view = (View) object;
+//                container.removeView(view);
+//            }
+//        });
+//        viewPager.setOffscreenPageLimit(5);
+//        viewPager.setPageTransformer(true,new MyPageTransformer());
 //        imageVew= (ImageView) findViewById(R.id.image_view);
 //        BitmapFactory.Options options=new BitmapFactory.Options();
 //        options.inSampleSize=2;
