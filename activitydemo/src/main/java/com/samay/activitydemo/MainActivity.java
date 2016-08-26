@@ -8,33 +8,42 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
-import com.samay.internet.httpURLConnection.HttpURlConnectionUtils;
+import com.samay.commonlib.app.AppInfos;
+
 
 public class MainActivity extends Activity {
 
     Button mButton;
+    Button sButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mButton= (Button) findViewById(R.id.clickBtn);
+        mButton= (Button) findViewById(R.id.button_one);
+        sButton= (Button) findViewById(R.id.button_two);
+        final AppInfos appInfos=AppInfos.getInstance();
+        sButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        appInfos.install("/storage/emulated/0/TestException.apk", MainActivity.this);
+                    }
+                }).start();
+            }
+        });
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent();
-                intent.setAction("com.tct.diagnostic.INFORMEDCONSENT");
-                startActivity(intent);
-                overridePendingTransition(R.anim.slide_right_in,R.anim.slide_left_out);
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        appInfos.silentInstall("/storage/emulated/0/TestException.apk");
+                    }
+                }).start();
             }
         });
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                HttpURlConnectionUtils utils=new HttpURlConnectionUtils();
-                utils.getContent("https://www.baidu.com/");
-            }
-        }).start();
-
     }
 
     @Override

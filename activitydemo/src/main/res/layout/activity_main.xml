@@ -1,5 +1,5 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/com.samay.commonlib"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,23 +9,30 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+    <!--<com.samay.commonlib.view.circleview.CircleImageView-->
+        <!--android:layout_width="45dp"-->
+        <!--android:layout_height="45dp"-->
+        <!--android:src="#BFBFBF"-->
+        <!--app:civ_border_color="#FF000000"-->
+        <!--app:civ_border_width="30dp" />-->
+
 
     <Button
-        android:id="@+id/clickBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Click Me" />
+        android:text="uninstall silent"
+        android:layout_margin="30dp"
+        android:id="@+id/button_one"
+        />
 
-    <com.samay.commonlib.view.circleview.CircleView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="100dp"
-        app:src="@mipmap/ic_launcher"
-        app:type="0" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="uninstall"
+        android:layout_margin="100dp"
+        android:id="@+id/button_two"
+        />
+
+
 
 </RelativeLayout>
